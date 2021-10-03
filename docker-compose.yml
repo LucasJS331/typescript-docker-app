@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  mongo:
+    image: mongo:4.4
+    restart: always
+    ports:
+      - '27017:27017'
+  
+  app_types:
+    build: .
+    depends_on:
+      - mongo
+    restart: always
+    ports:
+      - 8080:5000
